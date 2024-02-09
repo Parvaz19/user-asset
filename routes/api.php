@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AssetController;
+use App\Http\Controllers\Api\V1\ConversionFactorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
     Route::apiResource('assets', AssetController::class);
+    Route::apiResource('conversion-factors', ConversionFactorController::class);
 });
