@@ -16,7 +16,7 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        abort_unless(auth()->user()->is_admin, 403);
+        abort_unless(auth()->user() and auth()->user()->is_admin, 403);
         return $next($request);
     }
 }
