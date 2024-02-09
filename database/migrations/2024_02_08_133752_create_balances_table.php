@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('balances', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('asset_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->primary(['asset_id', 'user_id']);
+            $table->unique(['asset_id', 'user_id']);
             $table->unsignedDecimal('amount', 10, 2)->default(0);
             $table->timestamps();
         });

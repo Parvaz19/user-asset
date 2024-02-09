@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
     ];
 
     /**
@@ -46,5 +47,15 @@ class User extends Authenticatable
     public function assets()
     {
         return $this->belongsToMany(Asset::class, 'balances')->withPivot('amount');
+    }
+
+    public function balances()
+    {
+        return $this->hasMany(Balance::class);
+    }
+
+    public function balanceLogs()
+    {
+        return $this->hasMany(BalanceLog::class);
     }
 }

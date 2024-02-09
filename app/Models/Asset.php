@@ -16,4 +16,9 @@ class Asset extends Model
         return $this->belongsToMany(User::class, 'balances')->withPivot('amount');
     }
 
+    public function balances()
+    {
+        return $this->hasMany(Balance::class);
+    }
+
 }
