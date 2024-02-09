@@ -15,9 +15,10 @@ class UserSeeder extends Seeder
     {
         $items = [
             [
-                'name' => 'ali',
-                'email' => 'ali@example.com',
-                'password' => '123456'
+                'name' => 'admin',
+                'email' => 'admin@example.com',
+                'password' => '123456',
+                'is_admin' => true,
             ],
             [
                 'name' => 'test',
